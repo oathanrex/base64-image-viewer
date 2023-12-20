@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="Base64ImageViewerApp">
+<head>
+  <meta charset="utf-8">
+  <title>Base64 Image Viewer</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+  <script src="js/controllers.js"></script>
+  <style>
+    body {
+      background: linear-gradient(to right, #3498db, #8e44ad);
+      color: #fff;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+    }
+
+    .container {
+      width: 400px;
+    }
+
+    .panel {
+      background-color: rgba(255, 255, 255, 0.9);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+      overflow: hidden;
+    }
+
+    .panel-heading {
+      background-color: #3498db;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .form-group {
+      padding: 20px;
+      margin: 0;
+    }
+
+    label {
+      font-weight: bold;
+      margin-bottom: 5px;
+      color: #333; 
+    }
+
+    #base64ImageString {
+      width: calc(100% - 40px);
+      margin-bottom: 20px;
+    }
+
+    #decodedImage {
+      max-width: 100%;
+      height: auto;
+      border: 1px solid #ddd;
+      border-radius: 4px;
+      padding: 5px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+<body ng-controller="Base64ImageViewerCtrl">
+
+<div class="container">
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h3 class="panel-title">Base64 Image Viewer</h3>
+    </div>
+    <div class="form-group">
+      <label for="base64ImageString">Base64 Image String</label>
+      <textarea class="form-control" id="base64ImageString" placeholder="data:image/png;base64,...." ng-model="base64ImageUrl" rows="5"></textarea>
+    </div>
+    <div class="form-group">
+      <label for="decodedImage">Image</label>
+      <img id="decodedImage" ng-src="{{base64ImageUrl}}" alt="Decoded Image">
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
